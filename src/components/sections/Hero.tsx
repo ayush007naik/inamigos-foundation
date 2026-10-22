@@ -8,7 +8,7 @@ import { Media } from '@/components/Media'
 import { Marquee } from '@/components/Marquee'
 import { Magnetic } from '@/components/Magnetic'
 import { Aurora } from '@/components/Aurora'
-import { usePrefersReducedMotion } from '@/hooks/useMediaQuery'
+import { usePrefersReducedMotion, useIsDesktop } from '@/hooks/useMediaQuery'
 
 const TICKER = [
   '50,000+ beneficiaries',
@@ -29,6 +29,7 @@ const GLANCE = [
 export function Hero() {
   const ref = useRef<HTMLElement | null>(null)
   const reduced = usePrefersReducedMotion()
+  const isDesktop = useIsDesktop()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
 
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
@@ -46,14 +47,16 @@ export function Hero() {
   const stackY = useTransform(smoothY, [-1, 1], [16, -16])
 
   useEffect(() => {
-    if (reduced) return
+    // Touch pointers fire pointermove while the page scrolls, which would drag
+    // the panel around mid-scroll — the parallax only makes sense with a mouse.
+    if (reduced || !isDesktop) return
     const onMove = (e: PointerEvent) => {
       pointerX.set((e.clientX / window.innerWidth) * 2 - 1)
       pointerY.set((e.clientY / window.innerHeight) * 2 - 1)
     }
     window.addEventListener('pointermove', onMove, { passive: true })
     return () => window.removeEventListener('pointermove', onMove)
-  }, [pointerX, pointerY, reduced])
+  }, [pointerX, pointerY, reduced, isDesktop])
 
   return (
     <section ref={ref} className="relative isolate min-h-[100svh] overflow-hidden">
@@ -183,7 +186,7 @@ export function Hero() {
 
           {/* --- Floating panel ------------------------------------------ */}
           <motion.aside
-            className="hidden lg:block"
+            className="mx-auto block w-full max-w-md lg:max-w-none xl:-mr-2"
             style={reduced ? undefined : { y: panelY }}
             initial={{ opacity: 0, x: 34 }}
             animate={{ opacity: 1, x: 0 }}
@@ -195,11 +198,11 @@ export function Hero() {
             >
               {/* Behind plate */}
               <div
-                className="absolute -right-6 -top-6 h-full w-full rounded-[2rem] border border-ember/25"
+                className="absolute -right-3 -top-5 h-full w-full rounded-[2rem] border border-ember/25 sm:-right-5 sm:-top-6 lg:-right-6"
                 aria-hidden="true"
               />
               <div
-                className="absolute -right-6 -top-6 h-full w-full rounded-[2rem] bg-ember/10 blur-2xl"
+                className="absolute -right-3 -top-5 h-full w-full rounded-[2rem] bg-ember/10 blur-2xl sm:-right-5 sm:-top-6 lg:-right-6"
                 aria-hidden="true"
               />
 
@@ -207,20 +210,19 @@ export function Hero() {
                 <Media
                   src="/img/g-07.webp"
                   alt="InAmigos Foundation community gathering"
-                  ratio="4 / 3"
-                  sizes="(max-width: 768px) 100vw, 26vw"
-                  className="[&>img]:ken-burns"
+                  className="aspect-[16/9] lg:aspect-[4/3] [&>img]:ken-burns"
+                  sizes="(max-width: 1024px) 100vw, 30vw"
                 />
                 <div className="scrim-b absolute inset-0" aria-hidden="true" />
-                <div className="space-y-4 bg-ink/70 p-6 backdrop-blur-md">
+                <div className="space-y-3.5 bg-ink/70 p-4 backdrop-blur-md sm:p-5 lg:space-y-4 lg:p-6">
                   <p className="eyebrow">At a glance</p>
-                  <dl className="space-y-3.5 text-sm">
+                  <dl className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-[0.78rem] lg:block lg:space-y-3.5 lg:text-sm">
                     {GLANCE.map(([term, detail]) => (
                       <div
                         key={term}
-                        className="flex flex-col gap-0.5 border-b border-line/40 pb-3 last:border-0 last:pb-0"
+                        className="flex flex-col gap-0.5 lg:border-b lg:border-line/40 lg:pb-3 lg:last:border-0 lg:last:pb-0"
                       >
-                        <dt className="font-mono text-[0.6rem] uppercase tracking-widest text-bone-faint">
+                        <dt className="font-mono text-[0.58rem] uppercase tracking-widest text-bone-faint">
                           {term}
                         </dt>
                         <dd className="text-bone-dim">{detail}</dd>
@@ -228,14 +230,6 @@ export function Hero() {
                     ))}
                   </dl>
                 </div>
-              </div>
-
-              {/* Floating badge */}
-              <div className="glass float-slow absolute -bottom-7 -left-9 hidden w-44 rounded-2xl p-4 shadow-[var(--shadow-lift)] xl:block">
-                <p className="font-display text-[2rem] leading-none text-bone">28</p>
-                <p className="mt-1.5 font-mono text-[0.58rem] uppercase tracking-widest text-ember">
-                  States reached
-                </p>
               </div>
             </motion.div>
           </motion.aside>
