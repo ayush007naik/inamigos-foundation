@@ -1,72 +1,72 @@
-# InAmigos Foundation — website
 
-Cinematic, frontend-only marketing site for InAmigos Foundation.
+<h1 align="center">🌍 InAmigos Foundation — Website Redesign</h1>
 
-**Live site:** https://ayush007naik.github.io/inamigos-foundation/
+<h3 align="center">Modern UI/UX • Responsive Design • Social Impact</h3>
 
-## Stack
+<p align="center">
+  A cinematic, responsive website redesign created as part of a web development internship task.
+</p>
 
-- React 18 + TypeScript + Vite 6
-- Tailwind CSS 3 with a custom "Ember & Field" design system (`src/index.css`)
-- Framer Motion for motion, `react-router-dom` for routing
-- Self-hosted variable fonts (Fraunces / Inter / JetBrains Mono)
+<p align="center">
+  <a href="https://ayush007naik.github.io/inamigos-foundation/">
+    <img src="https://img.shields.io/badge/Live_Demo-Visit_Website-2ea44f?style=for-the-badge&logo=googlechrome" alt="Live Demo"/>
+  </a>
+  <a href="https://github.com/ayush007naik/inamigos-foundation">
+    <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub Repository"/>
+  </a>
+</p>
 
-No backend, no database. Forms validate client-side and show local success states only.
+---
 
-## Local development
+## 📌 Project Overview
 
-```bash
-npm install
-npm run dev      # http://localhost:5178
-npm run build    # production build into dist/
-npm run preview  # serve the production build
-```
+This project is a modern website redesign for **InAmigos Foundation**, created to improve the visual presentation, user experience and responsiveness of the foundation's online presence.
 
-## Deploying
+The redesign focuses on a cinematic visual style, clear content hierarchy, intuitive navigation and presenting the foundation's initiatives in an engaging way.
 
-Pushes to `main` trigger `.github/workflows/pages.yml`, which builds with
-`BASE_PATH=/inamigos-foundation/` and publishes the `dist/` folder to GitHub
-Pages. `vite.config.ts` writes a copy of `index.html` to `404.html` so deep
-links are handled by the client-side router, and `public/sw.js` turns those
-soft-404 navigations into real `200` responses and serves the site offline
-after the first visit.
+## 🎯 Project Objectives
 
-To preview the production build under the same base path:
+- Modernize the website's visual design.
+- Improve layout clarity and user navigation.
+- Create a responsive experience across devices.
+- Present the foundation's initiatives and social impact clearly.
+- Build a polished, professional user interface.
 
-```bash
-BASE_PATH=/inamigos-foundation/ npm run build
-npx serve dist
-```
+## ✨ Key Highlights
 
-## Content
+- 🎨 Modern, cinematic UI design.
+- 📱 Responsive page layouts.
+- 🧭 Clear navigation and content hierarchy.
+- 🌍 Presentation of the foundation's initiatives.
+- 💻 Website deployment using GitHub Pages.
 
-All copy, statistics, volunteer names, events and journal posts are verified
-against the official site — <https://www.inamigosfoundation.org.in/> — and live
-in `src/data/`. The `scripts/` folder holds the reproducible asset and content
-pipeline (fonts, image optimisation, post extraction).
+## 🛠️ Development Approach
 
-### Images
+I used AI-assisted development to translate design requirements into a working website, refine the UI, and iterate on the implementation.
 
-`scripts/optimise-images.mjs` re-encodes every photo in `public/img` to WebP
-and emits `-480` / `-900` responsive variants, then writes the manifest to
-`src/data/images.ts`. `src/components/Media.tsx` turns that manifest into a
-`srcset`, so phones fetch a ~50 KB file instead of the ~230 KB master.
+**Focus areas:**
+- UI/UX design and customization
+- Frontend implementation
+- Responsive layout refinement
+- Testing and iterative improvements
+- Deployment and presentation
 
-`scripts/fetch-volunteer-photos.mjs` downloads the official volunteer portraits
-from `inamigosfoundation.org.in/volunteers`, optimises them to `public/img/vol-*.webp`
-and merges their blur-up placeholders into `src/data/lqip.ts`.
+## 🔗 Project Links
 
-## Touch behaviour
+- **Live Website:** https://ayush007naik.github.io/inamigos-foundation/
+- **GitHub Repository:** https://github.com/ayush007naik/inamigos-foundation
+- **Original Foundation Website:** https://www.inamigosfoundation.org.in/
 
-Hover reactions use the `group-hover-fine` variant (a Tailwind plugin in
-`tailwind.config.js`) that wraps the rule in
-`@media (hover: hover) and (pointer: fine)`. On phones and tablets — where a
-tap leaves `:hover` stuck on the element — those reactions simply never fire,
-while `hover:` utilities on the element itself stay wrapped by Tailwind's
-`hoverOnlyWhenSupported` future flag.
+## 👨‍💻 Developer
 
-Horizontal rails set `overscroll-behavior-x: contain`, so swiping a card rail
-sideways no longer triggers the browser's back gesture, and the pointer-driven
-`Spotlight` glow ignores touch pointers so it does not follow the finger
-during a scroll.
+**Ayush Naik**  
+B.Tech Chemical Engineering — NIT Hamirpur
 
+- [LinkedIn](https://linkedin.com/in/ayush-naik-3298b635b)
+- [GitHub](https://github.com/ayush007naik)
+
+---
+
+<p align="center">
+  <b>Designed to present social impact through a modern digital experience.</b>
+</p>
