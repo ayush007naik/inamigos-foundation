@@ -37,7 +37,7 @@ export function SiteHeader() {
             : 'border-b border-transparent bg-transparent'
         )}
       >
-        <div className="shell flex h-[4.5rem] items-center justify-between gap-6 md:h-20">
+        <div className="shell flex h-[4.5rem] items-center justify-between gap-3 md:h-20 md:gap-6">
           <Link
             to="/"
             className="group flex items-center gap-3"
@@ -92,7 +92,7 @@ export function SiteHeader() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2 sm:gap-2.5">
             <button
               type="button"
               onClick={toggle}
@@ -117,10 +117,11 @@ export function SiteHeader() {
               href={ORG.donateUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-primary hidden !px-5 !py-3 !text-[0.8rem] sm:inline-flex"
+              className="btn btn-primary !px-3.5 !py-2.5 !text-[0.72rem] sm:!px-5 sm:!py-3 sm:!text-[0.8rem]"
+              aria-label="Donate now to the InAmigos Foundation"
             >
-              Donate
-              <ArrowUpRight size={15} strokeWidth={2} />
+              Donate Now
+              <ArrowUpRight size={14} strokeWidth={2} className="hidden sm:block" />
             </a>
 
             <button
