@@ -27,7 +27,9 @@ npm run preview  # serve the production build
 Pushes to `main` trigger `.github/workflows/pages.yml`, which builds with
 `BASE_PATH=/inamigos-foundation/` and publishes the `dist/` folder to GitHub
 Pages. `vite.config.ts` writes a copy of `index.html` to `404.html` so deep
-links are handled by the client-side router.
+links are handled by the client-side router, and `public/sw.js` turns those
+soft-404 navigations into real `200` responses and serves the site offline
+after the first visit.
 
 To preview the production build under the same base path:
 
@@ -42,3 +44,10 @@ All copy, statistics, volunteer names, events and journal posts are verified
 against the official site — <https://www.inamigosfoundation.org.in/> — and live
 in `src/data/`. The `scripts/` folder holds the reproducible asset and content
 pipeline (fonts, image optimisation, post extraction).
+
+### Images
+
+`scripts/optimise-images.mjs` re-encodes every photo in `public/img` to WebP
+and emits `-480` / `-900` responsive variants, then writes the manifest to
+`src/data/images.ts`. `src/components/Media.tsx` turns that manifest into a
+`srcset`, so phones fetch a ~50 KB file instead of the ~230 KB master.
