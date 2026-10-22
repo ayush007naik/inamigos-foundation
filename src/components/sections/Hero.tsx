@@ -69,6 +69,7 @@ export function Hero() {
           alt="InAmigos Foundation volunteers at work in the field"
           priority
           plain
+          sizes="100vw"
           className="h-full w-full [&>img]:ken-burns"
         />
       </motion.div>
@@ -207,6 +208,7 @@ export function Hero() {
                   src="/img/g-07.webp"
                   alt="InAmigos Foundation community gathering"
                   ratio="4 / 3"
+                  sizes="(max-width: 768px) 100vw, 26vw"
                   className="[&>img]:ken-burns"
                 />
                 <div className="scrim-b absolute inset-0" aria-hidden="true" />

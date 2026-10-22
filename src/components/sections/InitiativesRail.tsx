@@ -109,6 +109,7 @@ export function InitiativesRail() {
                   src={initiative.image}
                   alt={initiative.imageAlt}
                   ratio="4 / 3"
+                  sizes="(max-width: 768px) 78vw, 360px"
                   imgClassName="group-hover:scale-[1.08]"
                 />
                 <div className="scrim-b absolute inset-0" aria-hidden="true" />

@@ -34,6 +34,7 @@ export function JournalPreview() {
                     src={lead.image}
                     alt={lead.imageAlt}
                     ratio="16 / 10"
+                    sizes="(max-width: 1024px) 100vw, 45vw"
                     imgClassName="group-hover:scale-[1.06]"
                   />
                 </div>
@@ -68,6 +69,7 @@ export function JournalPreview() {
                         src={post.image}
                         alt={post.imageAlt}
                         ratio="4 / 3"
+                        sizes="144px"
                         imgClassName="group-hover:scale-[1.07]"
                       />
                     </div>

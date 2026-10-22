@@ -7,7 +7,7 @@ import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { CtaBand } from '@/components/sections/CtaBand'
 import { useEscapeKey, useLockBodyScroll } from '@/hooks/useLockBodyScroll'
-import { cn , asset } from '@/lib/utils'
+import { cn, asset, srcSetFor } from '@/lib/utils'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 
 export default function Gallery() {
@@ -98,6 +98,7 @@ export default function Gallery() {
                   src={image.src}
                   alt={image.alt}
                   ratio={`${image.width} / ${image.height}`}
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   imgClassName="group-hover:scale-[1.06]"
                 />
                 <span className="pointer-events-none absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/25" />
@@ -180,7 +181,13 @@ export default function Gallery() {
           </button>
 
           <figure className="max-h-full w-full max-w-4xl">
-            <img src={asset(open.src)} alt={open.alt} className="max-h-[76vh] w-full rounded-2xl object-contain" />
+            <img
+              src={asset(open.src)}
+              srcSet={srcSetFor(open.src)}
+              sizes="(max-width: 896px) 100vw, 896px"
+              alt={open.alt}
+              className="max-h-[76vh] w-full rounded-2xl object-contain"
+            />
             <figcaption className="mt-4 flex items-center justify-between font-mono text-[0.64rem] uppercase tracking-widest text-bone-dim">
               <span>{open.group}</span>
               <span className="tabular">

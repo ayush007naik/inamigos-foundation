@@ -48,6 +48,7 @@ function InitiativeBlock({ initiative, index }: { initiative: Initiative; index:
                 src={initiative.image}
                 alt={initiative.imageAlt}
                 ratio="4 / 3"
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                 imgClassName="group-hover:scale-[1.05]"
               />
               <div className="scrim-b absolute inset-0" aria-hidden="true" />

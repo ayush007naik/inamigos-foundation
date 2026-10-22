@@ -166,6 +166,7 @@ export default function About() {
               src="/img/g-02.webp"
               alt="InAmigos Foundation volunteers at work"
               ratio="3 / 4"
+              sizes="(max-width: 768px) 100vw, 40vw"
               className="rounded-[2rem]"
             />
             <div className="absolute -bottom-8 -left-4 w-56 rounded-2xl border border-line/60 bg-ink/90 p-6 backdrop-blur-md sm:-left-8">
@@ -337,6 +338,7 @@ export default function About() {
           src="/img/g-17.webp"
           alt="InAmigos Foundation field activity"
           plain
+          sizes="100vw"
           className="absolute inset-0 -z-10 h-full w-full"
         />
         <div

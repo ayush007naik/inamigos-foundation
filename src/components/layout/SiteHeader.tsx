@@ -44,7 +44,7 @@ export function SiteHeader() {
             aria-label={`${ORG.name} — home`}
           >
             <img
-              src={asset('/img/mark.png')}
+              src={asset('/img/mark.webp')}
               alt=""
               width={32}
               height={42}

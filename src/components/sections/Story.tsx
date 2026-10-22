@@ -24,6 +24,7 @@ export function Story() {
                 alt="An InAmigos Foundation volunteer in the field"
                 ratio="4 / 5"
                 parallax={9}
+                sizes="(max-width: 768px) 100vw, 38vw"
                 className="rounded-[2rem] border border-line/55"
               />
               <ImageReveal
@@ -31,6 +32,7 @@ export function Story() {
                 alt="InAmigos Foundation community gathering"
                 ratio="4 / 5"
                 parallax={-7}
+                sizes="(max-width: 768px) 50vw, 224px"
                 delay={0.15}
                 className="absolute -bottom-10 -right-4 w-40 overflow-hidden rounded-2xl border border-line/60 shadow-[var(--shadow-deep)] sm:-right-8 sm:w-56"
               />

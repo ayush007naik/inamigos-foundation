@@ -36,6 +36,7 @@ export function EventsPreview() {
                 src={featured.image}
                 alt={featured.imageAlt}
                 ratio="16 / 11"
+                sizes="(max-width: 1024px) 100vw, 55vw"
                 imgClassName="group-hover:scale-[1.06]"
                 className="absolute inset-0 h-full w-full"
               />
@@ -79,7 +80,7 @@ export function EventsPreview() {
                     className="group flex h-full items-center gap-5 rounded-[1.5rem] border border-line/55 bg-ink/50 p-4 transition-all duration-500 hover:border-ember/45 hover:bg-ink-soft/80 sm:p-5"
                   >
                     <div className="w-24 shrink-0 overflow-hidden rounded-xl sm:w-32">
-                      <Media src={event.image} alt={event.imageAlt} ratio="4 / 3" />
+                      <Media src={event.image} alt={event.imageAlt} ratio="4 / 3" sizes="128px" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="font-mono text-[0.6rem] uppercase tracking-widest text-ember">

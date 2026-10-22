@@ -71,6 +71,7 @@ export default function Blog() {
                   src={featured.image}
                   alt={featured.imageAlt}
                   ratio="16 / 11"
+                  sizes="(max-width: 1024px) 100vw, 52vw"
                   imgClassName="group-hover:scale-[1.05]"
                   priority
                 />
@@ -207,6 +208,7 @@ export default function Blog() {
                         src={post.image}
                         alt={post.imageAlt}
                         ratio="4 / 3"
+                        sizes="(max-width: 640px) 100vw, 33vw"
                         imgClassName="group-hover:scale-[1.06]"
                       />
                       <span className="pointer-events-none absolute inset-0 rounded-[1.4rem] ring-1 ring-inset ring-bone/0 transition-all duration-500 group-hover:ring-ember/35" />

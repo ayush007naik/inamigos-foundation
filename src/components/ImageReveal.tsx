@@ -15,6 +15,8 @@ interface ImageRevealProps {
   parallax?: number
   /** Delay before the reveal begins, in seconds. */
   delay?: number
+  /** Layout width hint for responsive image selection. */
+  sizes?: string
 }
 
 /**
@@ -30,6 +32,7 @@ export function ImageReveal({
   priority = false,
   parallax = 8,
   delay = 0,
+  sizes = '100vw',
 }: ImageRevealProps) {
   const ref = useRef<HTMLDivElement | null>(null)
   const reduced = usePrefersReducedMotion()
@@ -60,6 +63,7 @@ export function ImageReveal({
             src={src}
             alt={alt}
             priority={priority}
+            sizes={sizes}
             className="h-full w-full"
             imgClassName={imgClassName}
           />

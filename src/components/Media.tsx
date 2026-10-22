@@ -1,6 +1,6 @@
 import { useState, type CSSProperties } from 'react'
 import { LQIP } from '@/data/lqip'
-import { asset } from '@/lib/utils'
+import { asset, srcSetFor } from '@/lib/utils'
 
 interface MediaProps {
   src: string
@@ -14,6 +14,11 @@ interface MediaProps {
   style?: CSSProperties
   /** Disable the blur-up (used for small decorative marks). */
   plain?: boolean
+  /**
+   * Layout width of the image. Drives which responsive variant the browser
+   * picks — keep it honest or the image will look soft.
+   */
+  sizes?: string
 }
 
 /**
@@ -29,10 +34,13 @@ export function Media({
   priority = false,
   style,
   plain = false,
+  sizes = '100vw',
 }: MediaProps) {
   const [loaded, setLoaded] = useState(false)
   const key = src.replace('/img/', '').replace('.webp', '')
   const lqip = LQIP[key]
+
+  const srcSet = srcSetFor(src)
 
   return (
     <div
@@ -46,6 +54,8 @@ export function Media({
       <img
         src={asset(src)}
         alt={alt}
+        srcSet={srcSet}
+        sizes={srcSet ? sizes : undefined}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
         {...{ fetchpriority: priority ? 'high' : 'auto' }}

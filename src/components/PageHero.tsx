@@ -37,7 +37,7 @@ export function PageHero({
             animate={{ scale: 1 }}
             transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Media src={image} alt={imageAlt} plain priority className="h-full w-full" />
+            <Media src={image} alt={imageAlt} plain priority sizes="100vw" className="h-full w-full" />
           </motion.div>
           <div
             className="absolute inset-0 -z-10"

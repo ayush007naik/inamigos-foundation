@@ -41,6 +41,7 @@ export function CtaBand() {
         src="/img/g-14.webp"
         alt="InAmigos Foundation community gathering"
         plain
+        sizes="100vw"
         className="absolute inset-0 -z-20 h-full w-full"
       />
       <div

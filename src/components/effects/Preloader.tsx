@@ -63,7 +63,7 @@ export function Preloader() {
 
           <div className="flex flex-col items-center gap-8">
             <motion.img
-              src={asset('/img/mark.png')}
+              src={asset('/img/mark.webp')}
               alt=""
               width={88}
               height={116}

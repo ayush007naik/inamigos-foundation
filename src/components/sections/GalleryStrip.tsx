@@ -7,7 +7,7 @@ import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { Spotlight } from '@/components/Spotlight'
 import { useEscapeKey, useLockBodyScroll } from '@/hooks/useLockBodyScroll'
-import { asset } from '@/lib/utils'
+import { asset, srcSetFor } from '@/lib/utils'
 
 export function GalleryStrip() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -60,6 +60,7 @@ export function GalleryStrip() {
                   src={image.src}
                   alt={image.alt}
                   ratio={image.width > image.height ? '16 / 10' : '3 / 4'}
+                  sizes="(max-width: 640px) 78vw, 28vw"
                   imgClassName="group-hover:scale-[1.07]"
                 />
                 <span className="pointer-events-none absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-bone/0 transition-all duration-500 group-hover:ring-ember/40" />
@@ -107,6 +108,8 @@ export function GalleryStrip() {
           <figure className="max-h-full w-full max-w-4xl">
             <img
               src={asset(open.src)}
+              srcSet={srcSetFor(open.src)}
+              sizes="(max-width: 896px) 100vw, 896px"
               alt={open.alt}
               className="max-h-[78vh] w-full rounded-2xl object-contain"
             />

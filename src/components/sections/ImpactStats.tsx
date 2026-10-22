@@ -12,6 +12,7 @@ export function ImpactStats() {
         src="/img/g-04.webp"
         alt="InAmigos Foundation community gathering"
         plain
+        sizes="100vw"
         className="absolute inset-0 -z-10 h-full w-full"
       />
       <div

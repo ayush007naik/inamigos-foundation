@@ -1,3 +1,5 @@
+import { IMAGE_VARIANTS } from '@/data/images'
+
 export function cn(...parts: Array<string | false | null | undefined>): string {
   return parts.filter(Boolean).join(' ')
 }
@@ -11,6 +13,21 @@ export function asset(path: string): string {
   if (/^(https?:)?\/\//.test(path) || path.startsWith('data:')) return path
   const base = import.meta.env.BASE_URL || '/'
   return `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
+}
+
+/**
+ * Builds a `srcset` for an image in public/img from the generated responsive
+ * variants. Returns undefined when the asset has no variants (e.g. PNG marks).
+ */
+export function srcSetFor(path: string): string | undefined {
+  if (!/\.webp$/.test(path)) return undefined
+  const key = path.replace('/img/', '').replace('.webp', '')
+  const variant = IMAGE_VARIANTS[key]
+  if (!variant) return undefined
+  return [
+    ...variant.widths.map((w) => `${asset(path.replace('.webp', `-${w}.webp`))} ${w}w`),
+    `${asset(path)} ${variant.master}w`,
+  ].join(', ')
 }
 
 /** Formats a number with Indian-style grouping (1,20,000). */

@@ -90,6 +90,7 @@ export default function BlogPost() {
             alt={post.imageAlt}
             plain
             priority
+            sizes="100vw"
             className="absolute inset-0 -z-10 h-full w-full"
           />
           <div
@@ -229,6 +230,7 @@ export default function BlogPost() {
                         src={item.image}
                         alt={item.imageAlt}
                         ratio="4 / 3"
+                        sizes="(max-width: 640px) 100vw, 33vw"
                         imgClassName="group-hover:scale-[1.06]"
                       />
                     </Link>
