@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" type="image/png" href="/img/mark.png" />
+    <link rel="apple-touch-icon" href="/img/mark.png" />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+    <title>InAmigos Foundation — Friends who turn compassion into action</title>
+    <meta
+      name="description"
+      content="InAmigos Foundation is a Section 8 registered non-profit founded on 23 September 2020 by Mr. Govind Shukla. Six initiatives across education, animal welfare, women empowerment, environment, employability and the underprivileged."
+    />
+    <meta name="theme-color" content="#0a0908" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f6f2eb" media="(prefers-color-scheme: light)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="InAmigos Foundation" />
+    <meta property="og:title" content="InAmigos Foundation — Friends who turn compassion into action" />
+    <meta
+      property="og:description"
+      content="Six initiatives. 50,000+ beneficiaries. 28 states. One collective of friends making change measurable across India."
+    />
+    <meta property="og:image" content="/img/g-01.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="canonical" href="https://ayush007naik.github.io/inamigos-foundation/" />
+    <script>
+      // Apply the stored theme before first paint to avoid a flash.
+      (function () {
+        try {
+          var stored = localStorage.getItem('inamigos-theme')
+          var theme =
+            stored ||
+            (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+          document.documentElement.setAttribute('data-theme', theme)
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark')
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="padding: 2rem; font-family: system-ui, sans-serif; color: #f4f0e8; background: #0a0908">
+        <h1>InAmigos Foundation</h1>
+        <p>
+          This site needs JavaScript enabled. You can still reach us at
+          <a href="mailto:support@inamigosfoundation.org.in">support@inamigosfoundation.org.in</a>
+          or +91 626 730 9902.
+        </p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
