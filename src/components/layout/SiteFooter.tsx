@@ -209,6 +209,14 @@ export function SiteFooter() {
           Where friendship becomes action
         </p>
       </div>
+
+      {/* Copyright */}
+      <div className="relative border-t border-line/50 px-5 py-7">
+        <p className="text-center font-mono text-[0.64rem] uppercase tracking-[0.18em] text-bone-faint">
+          © {year} <span className="text-ember">{ORG.developer.name}</span> · {ORG.developer.role} ·{' '}
+          {ORG.developer.group}
+        </p>
+      </div>
     </footer>
   )
 }

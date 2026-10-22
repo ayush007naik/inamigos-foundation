@@ -35,6 +35,11 @@ export const ORG = {
     { label: 'Pinterest', href: 'https://pinterest.com', icon: 'pinterest' },
   ],
   credits: { label: 'Developed by Visho Infotech', href: 'https://vishoinfotech.com' },
+  developer: {
+    name: 'Ayush Naik',
+    role: 'Intern, InAmigos Web Developer',
+    group: 'Group 1043',
+  },
 } as const
 
 export interface Credential {
