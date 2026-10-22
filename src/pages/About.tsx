@@ -298,33 +298,54 @@ export default function About() {
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {leaders.map((person, i) => (
             <Reveal key={person.name} delay={i * 0.06}>
-              <article className="group flex h-full flex-col rounded-[1.5rem] border border-line/55 bg-ink-soft/40 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-ember/45">
-                <span className="grid h-14 w-14 place-items-center rounded-full border border-ember/30 bg-ember/10 font-display text-lg text-ember transition-colors duration-500 group-hover-fine:bg-ember group-hover-fine:text-ink">
-                  {initials(person.name)}
-                </span>
-                <h3 className="mt-6 font-display text-[1.3rem] leading-snug text-bone">{person.name}</h3>
-                <p className="mt-1.5 font-mono text-[0.62rem] uppercase tracking-widest text-ember">
-                  {person.role}
-                </p>
-                <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-6">
-                  <a
-                    href={`mailto:${person.email}`}
-                    className="inline-flex items-center gap-1.5 font-mono text-[0.62rem] text-bone-dim transition-colors hover:text-bone"
-                  >
-                    <Mail size={12} strokeWidth={1.8} aria-hidden="true" />
-                    Email
-                  </a>
-                  {person.linkedin && (
+              <article className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-line/55 bg-ink-soft/40 transition-all duration-500 hover:-translate-y-1 hover:border-ember/45">
+                {person.image && (
+                  <div className="relative">
+                    <Media
+                      src={person.image}
+                      alt={`${person.name} — ${person.role}, InAmigos Foundation`}
+                      ratio="4 / 5"
+                      className="w-full"
+                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 88vw"
+                    />
+                    <div
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/5 to-transparent"
+                      aria-hidden="true"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-1 flex-col p-7">
+                  {!person.image && (
+                    <span className="grid h-14 w-14 place-items-center rounded-full border border-ember/30 bg-ember/10 font-display text-lg text-ember">
+                      {initials(person.name)}
+                    </span>
+                  )}
+                  <h3 className={`font-display text-[1.3rem] leading-snug text-bone ${person.image ? '' : 'mt-6'}`}>
+                    {person.name}
+                  </h3>
+                  <p className="mt-1.5 font-mono text-[0.62rem] uppercase tracking-widest text-ember">
+                    {person.role}
+                  </p>
+                  <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-6">
                     <a
-                      href={person.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={`mailto:${person.email}`}
                       className="inline-flex items-center gap-1.5 font-mono text-[0.62rem] text-bone-dim transition-colors hover:text-bone"
                     >
-                      <ArrowUpRight size={12} strokeWidth={1.8} aria-hidden="true" />
-                      LinkedIn
+                      <Mail size={12} strokeWidth={1.8} aria-hidden="true" />
+                      Email
                     </a>
-                  )}
+                    {person.linkedin && (
+                      <a
+                        href={person.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-mono text-[0.62rem] text-bone-dim transition-colors hover:text-bone"
+                      >
+                        <ArrowUpRight size={12} strokeWidth={1.8} aria-hidden="true" />
+                        LinkedIn
+                      </a>
+                    )}
+                  </div>
                 </div>
               </article>
             </Reveal>

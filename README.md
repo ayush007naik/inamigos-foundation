@@ -52,6 +52,10 @@ and emits `-480` / `-900` responsive variants, then writes the manifest to
 `src/data/images.ts`. `src/components/Media.tsx` turns that manifest into a
 `srcset`, so phones fetch a ~50 KB file instead of the ~230 KB master.
 
+`scripts/fetch-volunteer-photos.mjs` downloads the official volunteer portraits
+from `inamigosfoundation.org.in/volunteers`, optimises them to `public/img/vol-*.webp`
+and merges their blur-up placeholders into `src/data/lqip.ts`.
+
 ## Touch behaviour
 
 Hover reactions use the `group-hover-fine` variant (a Tailwind plugin in

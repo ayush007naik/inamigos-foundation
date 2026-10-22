@@ -200,17 +200,9 @@ export const IMAGE_VARIANTS: Record<string, ImageVariant> = {
       900
     ]
   },
-  "logo-footer": {
-    "master": 640,
-    "widths": [
-      480
-    ]
-  },
-  "logo": {
-    "master": 640,
-    "widths": [
-      480
-    ]
+  "mark": {
+    "master": 240,
+    "widths": []
   },
   "post-animal-protection": {
     "master": 1400,
@@ -280,6 +272,176 @@ export const IMAGE_VARIANTS: Record<string, ImageVariant> = {
     "widths": [
       480,
       900
+    ]
+  },
+  "vol-adil-ali": {
+    "master": 640,
+    "widths": [
+      480
+    ]
+  },
+  "vol-akash": {
+    "master": 358,
+    "widths": []
+  },
+  "vol-anam-fatima": {
+    "master": 445,
+    "widths": []
+  },
+  "vol-anchal": {
+    "master": 640,
+    "widths": [
+      480
+    ]
+  },
+  "vol-anusha": {
+    "master": 360,
+    "widths": []
+  },
+  "vol-bhavya": {
+    "master": 480,
+    "widths": []
+  },
+  "vol-dr-akash": {
+    "master": 525,
+    "widths": [
+      480
+    ]
+  },
+  "vol-faiz-khan": {
+    "master": 526,
+    "widths": [
+      480
+    ]
+  },
+  "vol-gloria-fredy-carvalho": {
+    "master": 483,
+    "widths": [
+      480
+    ]
+  },
+  "vol-govind-shukla": {
+    "master": 378,
+    "widths": []
+  },
+  "vol-iniya-radhakrishnan": {
+    "master": 640,
+    "widths": [
+      480
+    ]
+  },
+  "vol-jai-chandela": {
+    "master": 480,
+    "widths": []
+  },
+  "vol-khush-gupta": {
+    "master": 480,
+    "widths": []
+  },
+  "vol-khushi-rai": {
+    "master": 640,
+    "widths": [
+      480
+    ]
+  },
+  "vol-komal-kushwaha": {
+    "master": 480,
+    "widths": []
+  },
+  "vol-madhusoodan-m": {
+    "master": 480,
+    "widths": []
+  },
+  "vol-manavi-jaiswal": {
+    "master": 514,
+    "widths": [
+      480
+    ]
+  },
+  "vol-megha-kelvi": {
+    "master": 360,
+    "widths": []
+  },
+  "vol-padmasri": {
+    "master": 640,
+    "widths": [
+      480
+    ]
+  },
+  "vol-paree-nagpal": {
+    "master": 640,
+    "widths": [
+      480
+    ]
+  },
+  "vol-raman-swarnakar": {
+    "master": 530,
+    "widths": [
+      480
+    ]
+  },
+  "vol-riddhima-barthwal": {
+    "master": 417,
+    "widths": []
+  },
+  "vol-roshi": {
+    "master": 640,
+    "widths": [
+      480
+    ]
+  },
+  "vol-sagar-solanki": {
+    "master": 640,
+    "widths": [
+      480
+    ]
+  },
+  "vol-sagarika-jaiswal": {
+    "master": 417,
+    "widths": []
+  },
+  "vol-shaik-shahira-bhanu": {
+    "master": 640,
+    "widths": [
+      480
+    ]
+  },
+  "vol-shiwani": {
+    "master": 480,
+    "widths": []
+  },
+  "vol-simranjeet": {
+    "master": 433,
+    "widths": []
+  },
+  "vol-sonam-singh": {
+    "master": 364,
+    "widths": []
+  },
+  "vol-suhaliya-khan": {
+    "master": 640,
+    "widths": [
+      480
+    ]
+  },
+  "vol-tannu-sharma": {
+    "master": 393,
+    "widths": []
+  },
+  "vol-vedanshi-chaudhari": {
+    "master": 582,
+    "widths": [
+      480
+    ]
+  },
+  "vol-vignesh-n": {
+    "master": 425,
+    "widths": []
+  },
+  "vol-vivek": {
+    "master": 640,
+    "widths": [
+      480
     ]
   }
 }
