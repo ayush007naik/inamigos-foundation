@@ -43,7 +43,7 @@ export function ImpactStats() {
           {STATS.map((stat, i) => (
             <Reveal as="li" key={stat.label} delay={i * 0.08} className="h-full">
               <Spotlight className="group relative h-full overflow-hidden rounded-3xl border border-line/50 bg-ink/80 p-8 backdrop-blur-sm transition-all duration-700 ease-cinematic hover:-translate-y-1.5 hover:border-ember/45 md:p-10">
-                <span className="absolute inset-x-0 top-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-ember to-transparent transition-transform duration-700 ease-cinematic group-hover:scale-x-100" />
+                <span className="absolute inset-x-0 top-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-ember to-transparent transition-transform duration-700 ease-cinematic group-hover-fine:scale-x-100" />
                 <span
                   className="pointer-events-none absolute right-6 top-5 font-display text-5xl leading-none text-transparent opacity-15 [-webkit-text-stroke:1px_rgb(var(--c-bone))]"
                   aria-hidden="true"

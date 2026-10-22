@@ -134,7 +134,7 @@ export default function Volunteers() {
                 <li className="h-full list-none">
                   <article className="group flex h-full flex-col rounded-[1.4rem] border border-line/55 bg-ink-soft/40 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-ember/45">
                     <div className="flex items-start gap-4">
-                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-ember/30 bg-ember/10 font-display text-[0.95rem] text-ember transition-colors duration-500 group-hover:bg-ember group-hover:text-ink">
+                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-ember/30 bg-ember/10 font-display text-[0.95rem] text-ember transition-colors duration-500 group-hover-fine:bg-ember group-hover-fine:text-ink">
                         {initials(person.name)}
                       </span>
                       <div className="min-w-0 flex-1">

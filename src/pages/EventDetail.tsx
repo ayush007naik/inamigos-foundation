@@ -297,7 +297,7 @@ export default function EventDetail() {
                     className="group grid h-full gap-5 overflow-hidden rounded-[1.5rem] border border-line/55 bg-ink/50 p-5 transition-all duration-500 hover:-translate-y-1.5 hover:border-ember/45 sm:grid-cols-[10rem_1fr]"
                   >
                     <span className="overflow-hidden rounded-[1.1rem]">
-                      <Media src={item.image} alt={item.imageAlt} ratio="4 / 3" sizes="(max-width: 640px) 100vw, 33vw" imgClassName="group-hover:scale-[1.06]" />
+                      <Media src={item.image} alt={item.imageAlt} ratio="4 / 3" sizes="(max-width: 640px) 100vw, 33vw" imgClassName="group-hover-fine:scale-[1.06]" />
                     </span>
                     <span className="flex flex-col justify-center">
                       <span className="font-mono text-[0.58rem] uppercase tracking-widest text-ember">

@@ -37,7 +37,7 @@ export function EventsPreview() {
                 alt={featured.imageAlt}
                 ratio="16 / 11"
                 sizes="(max-width: 1024px) 100vw, 55vw"
-                imgClassName="group-hover:scale-[1.06]"
+                imgClassName="group-hover-fine:scale-[1.06]"
                 className="absolute inset-0 h-full w-full"
               />
               <div className="scrim-full absolute inset-0" aria-hidden="true" />
@@ -86,14 +86,14 @@ export function EventsPreview() {
                       <p className="font-mono text-[0.6rem] uppercase tracking-widest text-ember">
                         {event.category} · {event.date}
                       </p>
-                      <h3 className="mt-2 font-display text-[1.15rem] leading-snug text-bone transition-colors duration-300 group-hover:text-ember sm:text-[1.3rem]">
+                      <h3 className="mt-2 font-display text-[1.15rem] leading-snug text-bone transition-colors duration-300 group-hover-fine:text-ember sm:text-[1.3rem]">
                         {event.title}
                       </h3>
                       <p className="mt-2 hidden text-[0.85rem] leading-relaxed text-bone-dim sm:block">
                         {event.summary}
                       </p>
                     </div>
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line/70 text-bone-dim transition-all duration-300 group-hover:border-ember/60 group-hover:text-ember">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line/70 text-bone-dim transition-all duration-300 group-hover-fine:border-ember/60 group-hover-fine:text-ember">
                       <ArrowUpRight size={15} strokeWidth={1.8} />
                     </span>
                   </Link>

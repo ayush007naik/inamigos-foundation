@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+import plugin from 'tailwindcss/plugin'
+
 const withVar = (name) => `rgb(var(${name}) / <alpha-value>)`
 
 export default {
   darkMode: ['class', '[data-theme="dark"]'],
+  // Touch devices keep :hover stuck after a tap — only light up on real hover.
+  future: { hoverOnlyWhenSupported: true },
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
@@ -97,5 +101,14 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Touch devices keep :hover stuck after a tap, so group reactions only
+    // fire on devices that actually have a hovering pointer.
+    plugin(({ addVariant }) => {
+      addVariant(
+        'group-hover-fine',
+        '@media (hover: hover) and (pointer: fine) { .group:hover & }'
+      )
+    }),
+  ],
 }

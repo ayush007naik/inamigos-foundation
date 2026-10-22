@@ -49,7 +49,7 @@ function InitiativeBlock({ initiative, index }: { initiative: Initiative; index:
                 alt={initiative.imageAlt}
                 ratio="4 / 3"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                imgClassName="group-hover:scale-[1.05]"
+                imgClassName="group-hover-fine:scale-[1.05]"
               />
               <div className="scrim-b absolute inset-0" aria-hidden="true" />
               <div className="absolute inset-x-0 bottom-0 p-7">
@@ -126,7 +126,7 @@ function InitiativeBlock({ initiative, index }: { initiative: Initiative; index:
                         <ArrowUpRight
                           size={15}
                           strokeWidth={1.8}
-                          className="shrink-0 text-ember transition-transform duration-500 ease-cinematic group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                          className="shrink-0 text-ember transition-transform duration-500 ease-cinematic group-hover-fine:translate-x-0.5 group-hover-fine:-translate-y-0.5"
                         />
                       </Link>
                     </li>
@@ -254,7 +254,7 @@ export default function Causes() {
                   <p className="mt-3 flex-1 text-[0.92rem] leading-relaxed text-bone-dim">{card.body}</p>
                   <span className="mt-6 inline-flex items-center gap-2 font-mono text-[0.64rem] uppercase tracking-widest text-ember">
                     {card.cta}
-                    <Plus size={13} strokeWidth={2} className="rotate-45 transition-transform duration-500 group-hover:rotate-90" />
+                    <Plus size={13} strokeWidth={2} className="rotate-45 transition-transform duration-500 group-hover-fine:rotate-90" />
                   </span>
                 </Link>
               </Reveal>

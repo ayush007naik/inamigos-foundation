@@ -48,7 +48,7 @@ export function SiteHeader() {
               alt=""
               width={32}
               height={42}
-              className="h-8 w-auto shrink-0 transition-transform duration-700 ease-cinematic group-hover:-translate-y-0.5 md:h-9"
+              className="h-8 w-auto shrink-0 transition-transform duration-700 ease-cinematic group-hover-fine:-translate-y-0.5 md:h-9"
             />
             <span className="flex flex-col leading-none">
               <span className="font-display text-[0.95rem] font-medium tracking-[-0.01em] text-bone">

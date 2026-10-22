@@ -252,7 +252,7 @@ export function Hero() {
             href="#impact"
             className="group flex items-center gap-3 text-bone-dim transition-colors hover:text-bone"
           >
-            <span className="grid h-9 w-9 place-items-center rounded-full border border-line/70 transition-colors duration-300 group-hover:border-ember/70">
+            <span className="grid h-9 w-9 place-items-center rounded-full border border-line/70 transition-colors duration-300 group-hover-fine:border-ember/70">
               <ArrowDown
                 size={14}
                 strokeWidth={1.8}

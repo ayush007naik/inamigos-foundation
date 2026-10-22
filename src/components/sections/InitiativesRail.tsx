@@ -1,17 +1,18 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { INITIATIVES } from '@/data/initiatives'
 import { Media } from '@/components/Media'
-import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { Spotlight } from '@/components/Spotlight'
+import { usePrefersReducedMotion } from '@/hooks/useMediaQuery'
 import { cn } from '@/lib/utils'
 
 const ACCENT_RING: Record<string, string> = {
-  ember: 'group-hover:border-ember/60',
-  moss: 'group-hover:border-moss/60',
-  clay: 'group-hover:border-clay/60',
+  ember: 'group-hover-fine:border-ember/60',
+  moss: 'group-hover-fine:border-moss/60',
+  clay: 'group-hover-fine:border-clay/60',
 }
 
 const ACCENT_TEXT: Record<string, string> = {
@@ -22,33 +23,84 @@ const ACCENT_TEXT: Record<string, string> = {
 
 export function InitiativesRail() {
   const trackRef = useRef<HTMLDivElement | null>(null)
-  const [progress, setProgress] = useState(0)
+  const barRef = useRef<HTMLDivElement | null>(null)
+  const frameRef = useRef<number | null>(null)
+  const reduced = usePrefersReducedMotion()
   const [canScroll, setCanScroll] = useState({ left: false, right: true })
 
+  /**
+   * Reads the rail's position and pushes it to the DOM directly — the
+   * progress bar never triggers a React render, so sliding stays smooth.
+   */
   const update = useCallback(() => {
     const el = trackRef.current
     if (!el) return
     const max = el.scrollWidth - el.clientWidth
-    setProgress(max > 0 ? el.scrollLeft / max : 0)
-    setCanScroll({ left: el.scrollLeft > 8, right: el.scrollLeft < max - 8 })
+    const progress = max > 0 ? el.scrollLeft / max : 0
+    if (barRef.current) barRef.current.style.width = `${Math.max(8, progress * 100)}%`
+    const left = el.scrollLeft > 8
+    const right = el.scrollLeft < max - 8
+    setCanScroll((prev) => (prev.left === left && prev.right === right ? prev : { left, right }))
   }, [])
+
+  const onScroll = useCallback(() => {
+    if (frameRef.current !== null) return
+    frameRef.current = requestAnimationFrame(() => {
+      frameRef.current = null
+      update()
+    })
+  }, [update])
 
   useEffect(() => {
     update()
     const el = trackRef.current
     if (!el) return
-    el.addEventListener('scroll', update, { passive: true })
+    el.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', update)
     return () => {
-      el.removeEventListener('scroll', update)
+      el.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', update)
+      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current)
     }
-  }, [update])
+  }, [onScroll, update])
 
+  /**
+   * Jumps exactly one card. Landing on a snap point keeps CSS scroll-snap from
+   * fighting the animation and throwing the rail out of alignment.
+   */
   const scrollBy = (dir: 1 | -1) => {
     const el = trackRef.current
     if (!el) return
-    el.scrollBy({ left: dir * Math.min(el.clientWidth * 0.82, 720), behavior: 'smooth' })
+    const items = Array.from(el.children).filter(
+      (child) => !(child instanceof HTMLElement && child.getAttribute('aria-hidden') === 'true')
+    ) as HTMLElement[]
+    const trackRect = el.getBoundingClientRect()
+    const pad = parseFloat(getComputedStyle(el).scrollPaddingLeft) || 0
+    const offset = (item: HTMLElement) =>
+      item.getBoundingClientRect().left - trackRect.left + el.scrollLeft
+
+    let target: number | null = null
+    if (dir > 0) {
+      for (const item of items) {
+        const left = offset(item)
+        if (left > el.scrollLeft + pad + 4) {
+          target = left - pad
+          break
+        }
+      }
+    } else {
+      for (let i = items.length - 1; i >= 0; i -= 1) {
+        const left = offset(items[i])
+        if (left < el.scrollLeft + pad - 4) {
+          target = left - pad
+          break
+        }
+      }
+    }
+
+    const max = el.scrollWidth - el.clientWidth
+    const next = Math.max(0, Math.min(target ?? el.scrollLeft, max))
+    el.scrollTo({ left: next, behavior: reduced ? 'auto' : 'smooth' })
   }
 
   return (
@@ -83,19 +135,32 @@ export function InitiativesRail() {
         />
       </div>
 
-      <div
+      <motion.div
         ref={trackRef}
         className="no-scrollbar mt-14 flex snap-x-mandatory gap-5 overflow-x-auto scroll-pl-5 pr-5 md:scroll-pl-10 md:pr-10"
         role="region"
         aria-label="Our initiatives"
         tabIndex={0}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
       >
         {INITIATIVES.map((initiative, index) => (
-          <Reveal
+          <motion.div
             key={initiative.key}
-            delay={index * 0.06}
-            direction="right"
             className="w-[84vw] shrink-0 snap-start-always sm:w-[62vw] lg:w-[30rem]"
+            variants={{
+              hidden: { opacity: 0, x: 28 },
+              visible: {
+                opacity: 1,
+                x: 0,
+                transition: {
+                  duration: 0.7,
+                  delay: reduced ? 0 : index * 0.06,
+                  ease: [0.16, 1, 0.3, 1],
+                },
+              },
+            }}
           >
             <Spotlight
               radius={18}
@@ -110,7 +175,7 @@ export function InitiativesRail() {
                   alt={initiative.imageAlt}
                   ratio="4 / 3"
                   sizes="(max-width: 768px) 78vw, 360px"
-                  imgClassName="group-hover:scale-[1.08]"
+                  imgClassName="group-hover-fine:scale-[1.08]"
                 />
                 <div className="scrim-b absolute inset-0" aria-hidden="true" />
                 <span
@@ -149,7 +214,7 @@ export function InitiativesRail() {
                   </div>
                   <Link
                     to={`/causes#${initiative.key}`}
-                    className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-line/70 text-bone-dim transition-all duration-300 group-hover:border-ember/60 group-hover:text-ember"
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-line/70 text-bone-dim transition-all duration-300 group-hover-fine:border-ember/60 group-hover-fine:text-ember"
                     aria-label={`Read about ${initiative.project}`}
                   >
                     <ArrowUpRight size={16} strokeWidth={1.8} />
@@ -157,16 +222,17 @@ export function InitiativesRail() {
                 </div>
               </div>
             </Spotlight>
-          </Reveal>
+          </motion.div>
         ))}
         <div className="w-1 shrink-0 md:w-10" aria-hidden="true" />
-      </div>
+      </motion.div>
 
       <div className="shell mt-9">
         <div className="h-px w-full bg-line/50">
           <div
+            ref={barRef}
             className="h-px bg-gradient-to-r from-ember to-clay transition-[width] duration-200 ease-out"
-            style={{ width: `${Math.max(8, progress * 100)}%` }}
+            style={{ width: '8%' }}
           />
         </div>
       </div>

@@ -89,7 +89,7 @@ export function SiteFooter() {
                       to={link.href}
                       className="group inline-flex items-center gap-2 text-[0.92rem] text-bone-dim transition-colors duration-300 hover:text-bone"
                     >
-                      <span className="h-px w-0 bg-ember transition-all duration-500 ease-cinematic group-hover:w-5" />
+                      <span className="h-px w-0 bg-ember transition-all duration-500 ease-cinematic group-hover-fine:w-5" />
                       {link.label}
                     </Link>
                   </li>
@@ -106,7 +106,7 @@ export function SiteFooter() {
                       to={`/causes#${i.key}`}
                       className="group inline-flex items-center gap-2 text-[0.92rem] text-bone-dim transition-colors duration-300 hover:text-bone"
                     >
-                      <span className="h-px w-0 bg-ember transition-all duration-500 ease-cinematic group-hover:w-5" />
+                      <span className="h-px w-0 bg-ember transition-all duration-500 ease-cinematic group-hover-fine:w-5" />
                       {i.project}
                     </Link>
                   </li>
@@ -180,7 +180,7 @@ export function SiteFooter() {
               <ArrowUp
                 size={18}
                 strokeWidth={1.6}
-                className="transition-transform duration-500 ease-cinematic group-hover:-translate-y-1"
+                className="transition-transform duration-500 ease-cinematic group-hover-fine:-translate-y-1"
               />
             </button>
           </div>

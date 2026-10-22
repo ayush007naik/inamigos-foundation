@@ -74,7 +74,7 @@ export default function Events() {
               className="group grid gap-8 overflow-hidden rounded-[2rem] border border-line/55 bg-ink-soft/40 p-6 transition-all duration-500 hover:border-ember/45 md:grid-cols-[1.1fr_0.9fr] md:p-8"
             >
               <div className="relative overflow-hidden rounded-[1.5rem]">
-                <Media src={lead.image} alt={lead.imageAlt} ratio="16 / 10" sizes="(max-width: 1024px) 100vw, 52vw" imgClassName="group-hover:scale-[1.05]" priority />
+                <Media src={lead.image} alt={lead.imageAlt} ratio="16 / 10" sizes="(max-width: 1024px) 100vw, 52vw" imgClassName="group-hover-fine:scale-[1.05]" priority />
               </div>
               <div className="flex flex-col justify-center">
                 <p className="eyebrow flex items-center gap-3">
@@ -109,7 +109,7 @@ export default function Events() {
                   <ArrowUpRight
                     size={14}
                     strokeWidth={2}
-                    className="transition-transform duration-500 ease-cinematic group-hover:translate-x-1 group-hover:-translate-y-1"
+                    className="transition-transform duration-500 ease-cinematic group-hover-fine:translate-x-1 group-hover-fine:-translate-y-1"
                   />
                 </span>
               </div>
@@ -132,7 +132,7 @@ export default function Events() {
               <li className="h-full list-none">
                 <article className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-line/55 bg-ink-soft/35 transition-all duration-500 hover:-translate-y-1.5 hover:border-ember/45">
                   <Link to={`/events/${event.slug}`} className="relative block overflow-hidden">
-                    <Media src={event.image} alt={event.imageAlt} ratio="16 / 10" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" imgClassName="group-hover:scale-[1.05]" />
+                    <Media src={event.image} alt={event.imageAlt} ratio="16 / 10" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" imgClassName="group-hover-fine:scale-[1.05]" />
                     <span className="scrim-b absolute inset-0" aria-hidden="true" />
                     <span className="absolute left-4 top-4 rounded-full border border-bone/20 bg-ink/70 px-3 py-1 font-mono text-[0.58rem] uppercase tracking-widest text-bone-dim backdrop-blur-sm">
                       {event.category}

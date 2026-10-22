@@ -82,7 +82,7 @@ export function CtaBand() {
             const Icon = path.icon
             const inner = (
               <>
-                <span className="grid h-12 w-12 place-items-center rounded-full border border-ember/30 bg-ember/10 text-ember transition-all duration-500 group-hover:bg-ember group-hover:text-ink">
+                <span className="grid h-12 w-12 place-items-center rounded-full border border-ember/30 bg-ember/10 text-ember transition-all duration-500 group-hover-fine:bg-ember group-hover-fine:text-ink">
                   <Icon size={19} strokeWidth={1.6} />
                 </span>
                 <h3 className="display-tight mt-6 text-2xl text-bone">{path.title}</h3>
@@ -92,7 +92,7 @@ export function CtaBand() {
                   <ArrowUpRight
                     size={14}
                     strokeWidth={2}
-                    className="transition-transform duration-500 ease-cinematic group-hover:translate-x-1 group-hover:-translate-y-1"
+                    className="transition-transform duration-500 ease-cinematic group-hover-fine:translate-x-1 group-hover-fine:-translate-y-1"
                   />
                 </span>
               </>

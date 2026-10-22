@@ -35,7 +35,7 @@ export function JournalPreview() {
                     alt={lead.imageAlt}
                     ratio="16 / 10"
                     sizes="(max-width: 1024px) 100vw, 45vw"
-                    imgClassName="group-hover:scale-[1.06]"
+                    imgClassName="group-hover-fine:scale-[1.06]"
                   />
                 </div>
                 <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[0.62rem] uppercase tracking-widest text-bone-faint">
@@ -46,7 +46,7 @@ export function JournalPreview() {
                     {formatIndian(lead.views)}
                   </span>
                 </div>
-                <h3 className="display-tight mt-3 max-w-[24ch] text-[clamp(1.5rem,1.2rem+1.4vw,2.15rem)] text-bone transition-colors duration-300 group-hover:text-ember">
+                <h3 className="display-tight mt-3 max-w-[24ch] text-[clamp(1.5rem,1.2rem+1.4vw,2.15rem)] text-bone transition-colors duration-300 group-hover-fine:text-ember">
                   {lead.title}
                 </h3>
                 <p className="mt-3 max-w-[54ch] text-[0.95rem] leading-relaxed text-bone-dim">
@@ -70,14 +70,14 @@ export function JournalPreview() {
                         alt={post.imageAlt}
                         ratio="4 / 3"
                         sizes="144px"
-                        imgClassName="group-hover:scale-[1.07]"
+                        imgClassName="group-hover-fine:scale-[1.07]"
                       />
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="font-mono text-[0.6rem] uppercase tracking-widest text-ember">
                         {post.category}
                       </p>
-                      <h3 className="mt-2 font-display text-[1.12rem] leading-snug text-bone transition-colors duration-300 group-hover:text-ember sm:text-[1.3rem]">
+                      <h3 className="mt-2 font-display text-[1.12rem] leading-snug text-bone transition-colors duration-300 group-hover-fine:text-ember sm:text-[1.3rem]">
                         {post.title}
                       </h3>
                       <p className="mt-2 font-mono text-[0.6rem] uppercase tracking-widest text-bone-faint">

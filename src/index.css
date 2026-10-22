@@ -715,10 +715,13 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+    /* Stop a horizontal swipe from triggering the browser's back gesture. */
+    overscroll-behavior-x: contain;
   }
 
   .snap-x-mandatory {
     scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
   }
   .snap-start-always {
     scroll-snap-align: start;

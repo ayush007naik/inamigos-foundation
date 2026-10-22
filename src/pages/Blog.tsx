@@ -72,7 +72,7 @@ export default function Blog() {
                   alt={featured.imageAlt}
                   ratio="16 / 11"
                   sizes="(max-width: 1024px) 100vw, 52vw"
-                  imgClassName="group-hover:scale-[1.05]"
+                  imgClassName="group-hover-fine:scale-[1.05]"
                   priority
                 />
               </div>
@@ -101,7 +101,7 @@ export default function Blog() {
                   <ArrowUpRight
                     size={14}
                     strokeWidth={2}
-                    className="transition-transform duration-500 ease-cinematic group-hover:translate-x-1 group-hover:-translate-y-1"
+                    className="transition-transform duration-500 ease-cinematic group-hover-fine:translate-x-1 group-hover-fine:-translate-y-1"
                   />
                 </span>
               </div>
@@ -209,9 +209,9 @@ export default function Blog() {
                         alt={post.imageAlt}
                         ratio="4 / 3"
                         sizes="(max-width: 640px) 100vw, 33vw"
-                        imgClassName="group-hover:scale-[1.06]"
+                        imgClassName="group-hover-fine:scale-[1.06]"
                       />
-                      <span className="pointer-events-none absolute inset-0 rounded-[1.4rem] ring-1 ring-inset ring-bone/0 transition-all duration-500 group-hover:ring-ember/35" />
+                      <span className="pointer-events-none absolute inset-0 rounded-[1.4rem] ring-1 ring-inset ring-bone/0 transition-all duration-500 group-hover-fine:ring-ember/35" />
                     </Link>
 
                     <p className="mt-5 font-mono text-[0.6rem] uppercase tracking-widest text-ember">

@@ -61,9 +61,9 @@ export function GalleryStrip() {
                   alt={image.alt}
                   ratio={image.width > image.height ? '16 / 10' : '3 / 4'}
                   sizes="(max-width: 640px) 78vw, 28vw"
-                  imgClassName="group-hover:scale-[1.07]"
+                  imgClassName="group-hover-fine:scale-[1.07]"
                 />
-                <span className="pointer-events-none absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-bone/0 transition-all duration-500 group-hover:ring-ember/40" />
+                <span className="pointer-events-none absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-bone/0 transition-all duration-500 group-hover-fine:ring-ember/40" />
               </Spotlight>
             </button>
           </Reveal>

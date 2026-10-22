@@ -231,7 +231,7 @@ export default function BlogPost() {
                         alt={item.imageAlt}
                         ratio="4 / 3"
                         sizes="(max-width: 640px) 100vw, 33vw"
-                        imgClassName="group-hover:scale-[1.06]"
+                        imgClassName="group-hover-fine:scale-[1.06]"
                       />
                     </Link>
                     <p className="mt-5 font-mono text-[0.6rem] uppercase tracking-widest text-ember">

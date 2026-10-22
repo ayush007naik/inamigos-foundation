@@ -397,7 +397,7 @@ export default function Contact() {
                           className="group flex items-center gap-3 rounded-[1rem] border border-line/60 px-4 py-3 transition-colors hover:border-ember/50 hover:text-ember"
                         >
                           <Icon size={15} strokeWidth={1.7} aria-hidden="true" className="text-ember" />
-                          <span className="font-mono text-[0.62rem] uppercase tracking-widest text-bone-dim transition-colors group-hover:text-ember">
+                          <span className="font-mono text-[0.62rem] uppercase tracking-widest text-bone-dim transition-colors group-hover-fine:text-ember">
                             {item.label}
                           </span>
                         </a>

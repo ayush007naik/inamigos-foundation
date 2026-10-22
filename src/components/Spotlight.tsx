@@ -26,6 +26,8 @@ export function Spotlight({
   const ref = useRef<HTMLDivElement | null>(null)
 
   const handleMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    // Touch pointers would drag the glow around while the user scrolls.
+    if (event.pointerType === 'touch') return
     const el = ref.current
     if (!el) return
     const rect = el.getBoundingClientRect()

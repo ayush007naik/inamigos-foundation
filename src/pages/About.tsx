@@ -194,7 +194,7 @@ export default function About() {
               return (
                 <Reveal key={credential.id} delay={i * 0.07}>
                   <article className="group flex h-full flex-col rounded-[1.5rem] border border-line/55 bg-ink/50 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-ember/45">
-                    <span className="grid h-11 w-11 place-items-center rounded-full border border-ember/30 bg-ember/10 text-ember transition-colors duration-500 group-hover:bg-ember group-hover:text-ink">
+                    <span className="grid h-11 w-11 place-items-center rounded-full border border-ember/30 bg-ember/10 text-ember transition-colors duration-500 group-hover-fine:bg-ember group-hover-fine:text-ink">
                       <Icon size={18} strokeWidth={1.6} />
                     </span>
                     <h3 className="mt-6 font-display text-[1.35rem] leading-snug text-bone">{credential.title}</h3>
@@ -299,7 +299,7 @@ export default function About() {
           {leaders.map((person, i) => (
             <Reveal key={person.name} delay={i * 0.06}>
               <article className="group flex h-full flex-col rounded-[1.5rem] border border-line/55 bg-ink-soft/40 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-ember/45">
-                <span className="grid h-14 w-14 place-items-center rounded-full border border-ember/30 bg-ember/10 font-display text-lg text-ember transition-colors duration-500 group-hover:bg-ember group-hover:text-ink">
+                <span className="grid h-14 w-14 place-items-center rounded-full border border-ember/30 bg-ember/10 font-display text-lg text-ember transition-colors duration-500 group-hover-fine:bg-ember group-hover-fine:text-ink">
                   {initials(person.name)}
                 </span>
                 <h3 className="mt-6 font-display text-[1.3rem] leading-snug text-bone">{person.name}</h3>
