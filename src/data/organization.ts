@@ -34,7 +34,7 @@ export const ORG = {
     { label: 'X', href: 'https://twitter.com', icon: 'twitter' },
     { label: 'Pinterest', href: 'https://pinterest.com', icon: 'pinterest' },
   ],
-  credits: { label: 'Developed by Visho Infotech', href: 'https://vishoinfotech.com' },
+  credits: { label: 'Developed by Ayush Naik', href: 'https://github.com/ayush007naik' },
   developer: {
     name: 'Ayush Naik',
     role: 'Intern, InAmigos Web Developer',
